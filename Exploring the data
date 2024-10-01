@@ -1,0 +1,19 @@
+import pandas as pd
+import numpy as np
+
+green = pd.read_excel('C:/Users/email/GHG_Data_2010_2020_data_Dec162021.xlsx') # open the file
+
+green.shape # shows that there are 2557 lines and 18 columns in the data
+
+# EXPLORE THE VARIABLES:
+c = green['Year'].value_counts(dropna=True)
+p = green['Year'].value_counts(normalize=True).mul(100).round(1).astype(str) + '%'
+pd.concat([c,p], axis=1, keys=['counts', '%']) # we see that there is the data from 2010 to 2020
+
+green.info() # exploring the names of 18 variables and thair data type
+
+# FUTRHER EXPLORING THE DATA:
+green.head() # first five rows of the data
+
+green.tail() # last five rows of the data
+
